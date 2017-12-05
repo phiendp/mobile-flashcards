@@ -1,5 +1,5 @@
-import getDecks, saveDeckTitle, addCardToDeck from '../utils/api'
-import { ADD_DECK, GET_DECKS, ADD_CARD, } from './types'
+import * as api from '../utils/api'
+import { ADD_DECK, GET_DECKS, ADD_CARD, } from './index'
 
 
 const addDeck = (deck) => {
