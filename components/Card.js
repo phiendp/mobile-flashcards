@@ -3,6 +3,7 @@ import {Text, StyleSheet, View } from 'react-native'
 import Button from './Button'
 import { center, deckCardsNumber, title } from '../styles'
 
+
 class Card extends Component {
   state = {
     show: 'answer',
