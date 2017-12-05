@@ -2,15 +2,15 @@ import { Platform } from 'react-native'
 
 // Colors
 export const white = '#ffffff'
-export const blue = '#137fd1'
-export const grey = '#666688';
-export const shadow = 'rgba(5, 77, 132, 0.24)';
+export const black = '#000000'
+export const grey = '#666688'
+export const shadow = 'rgba(5, 77, 132, 0.24)'
 
 // UI elements
 export const button = {
   default: {
     textAlign: 'center',
-    backgroundColor: blue,
+    backgroundColor: black,
     color: white,
     borderRadius: Platform.OS === 'ios' ? 8 : 1,
     overflow: 'hidden',
@@ -20,15 +20,15 @@ export const button = {
   },
   white: {
     backgroundColor: white, 
-    borderColor: blue, 
+    borderColor: black, 
     borderWidth: 1, 
-    color: blue,
+    color: black,
   },
 }
 
 export const title = {
   fontSize: 36,
-  color: blue,
+  color: black,
   textAlign: 'center',
 }
 
@@ -46,7 +46,7 @@ export const input = {
   height: 50,
   fontSize: 28,
   backgroundColor: Platform.OS === 'ios' ? white : 'transparent',
-  color: blue,
+  color: black,
   marginTop: 18,
 }
 
@@ -66,10 +66,10 @@ export const deck = {
     width: 0,
     height: 6
   },
-};
+}
 
 export const deckCardsNumber = {
   fontSize: 24,
   color: grey,
   textAlign: 'center',
-};
+}
