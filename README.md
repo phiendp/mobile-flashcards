@@ -6,3 +6,6 @@ This is a mobile application (Android or iOS - or both) that allows users to stu
 Please run the following command in the directory:
 * `yarn install`
 * `yarn start`
+
+## Test devices
+The project was tested in iOS simulator and an Android real device (Samsung Galaxy Note 8).
