@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { FlatList, Text, TouchableOpacity, View } from 'react-native'
+import {FlatList, Text, TouchableOpacity, View } from 'react-native'
+
 import Deck from './Deck'
 import { fetchDecks } from '../actions/decksActions'
-
 
 class Decks extends Component {
   _keyExtractor = (item) => item
@@ -28,12 +28,12 @@ class Decks extends Component {
   }
 
   render() {
-    const { ids, decks } = this.props
+    const { decksIds, decks } = this.props
 
     return (
       <View style={{flex: 1}}>
         <FlatList
-          data={ids}
+          data={decksIds}
           extraData={decks}
           renderItem={this._renderDeck}
           keyExtractor={this._keyExtractor}
@@ -43,8 +43,13 @@ class Decks extends Component {
   }
 }
 
-const mapStateToProps = ({ ids, decks }) => {
-  return { ids, decks }
+const mapStateToProps = ({ decksIds, decks }) => {
+  return {
+    decksIds,
+    decks,
+  }
 }
 
-export default connect(mapStateToProps, { fetchDecks })(Decks)
+export default connect(mapStateToProps, {
+  fetchDecks,
+})(Decks)
