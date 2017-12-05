@@ -32,10 +32,19 @@ class Card extends Component {
         </View>
         
         <View style={[styles.center, {flex: 3}]}>
-          <Button onPress={() => onCorrect()}>Correct</Button>
+          <Button 
+            onPress={() => {
+              this.setState({show: 'question'})
+              onCorrect()
+            }}>
+            Correct
+          </Button>
           <Button
             type='white'
-            onPress={() => onIncorrect()}> 
+            onPress={() => {
+              this.setState({show: 'question'})
+              onIncorrect()
+            }}>
             Incorrect
           </Button>
         </View>
