@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { FlatList, Text, TouchableOpacity, View } from 'react-native'
 import Deck from './Deck'
+import { fetchDecks } from '../actions/decksActions'
 
 
 class Decks extends Component {
@@ -10,17 +12,26 @@ class Decks extends Component {
     const { decks } = this.props
 
     return (
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => this.props.navigation.navigate(
+          'SpecificDeck',
+          { deckId: item, title: decks[item].title }
+        )}
+      >
         <Deck title={decks[item].title} questions={decks[item].questions} />
       </TouchableOpacity>
     )
+  }
+
+  componentDidMount() {
+    this.props.fetchDecks()
   }
 
   render() {
     const { ids, decks } = this.props
 
     return (
-      <View>
+      <View style={{flex: 1}}>
         <FlatList
           data={ids}
           extraData={decks}
