@@ -9,7 +9,7 @@ const Deck = (props) => {
   return (
     <View>
       <Text> { title } </Text>
-      <Text> {`${cardsNumber} card${cardsNumber !== 1 ? 's' : ''}`} </Text>
+      <Text> {`${totalCards} card${totalCards !== 1 ? 's' : ''}`} </Text>
     </View>
   )
 }
