@@ -7,6 +7,7 @@ import { center, deckCardsNumber, title } from '../styles'
 import { startQuiz, submitAnswer, resetQuiz } from '../actions/quizActions'
 import { clearLocalNotification, setLocalNotification } from '../utils/notifications'
 
+
 class Quiz extends Component {
   static navigationOptions = ({ navigation }) => {
     const { title } = navigation.state.params

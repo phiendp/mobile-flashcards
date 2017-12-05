@@ -32,6 +32,7 @@ class AddDeck extends Component {
       <KeyboardAvoidingView behavior='padding' style={styles.center}>
         <View>
           <Text style={styles.title}>What is the title?</Text>
+
           <TextInput
             ref='decksInput'
             style={styles.input}
@@ -40,8 +41,10 @@ class AddDeck extends Component {
             value={this.state.title}
             onSubmitEditing={() => this.submitDeckTitle()}
           />
+
           <Button onPress={() => this.submitDeckTitle()}>Submit</Button>
         </View>
+
       </KeyboardAvoidingView>
     )
   }

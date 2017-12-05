@@ -5,6 +5,7 @@ import Button from './Button'
 import { center, input, title } from '../styles'
 import { saveCard } from '../actions/decksActions'
 
+
 class AddCard extends Component {
   static navigationOptions = ({ navigation }) => {
     const { title } = navigation.state.params
@@ -68,6 +69,7 @@ class AddCard extends Component {
               this.refs.cardAnswer.focus()
             }}
           />
+
           <TextInput
             ref='cardAnswer'
             style={styles.input}
@@ -81,8 +83,10 @@ class AddCard extends Component {
             value={this.state.answer}
             onSubmitEditing={() => this.submitCard()}
           />
+
           <Button onPress={() => this.submitCard()}>Submit</Button>
         </View>
+        
       </KeyboardAvoidingView>
     )
   }
