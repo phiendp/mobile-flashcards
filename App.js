@@ -2,21 +2,13 @@ import React, { Component } from 'react'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import { View, StatusBar } from 'react-native'
-import { Constants } from 'expo'
 import { black } from './styles'
 import { reducer } from './reducers'
 import configureStore from './store'
 import { setLocalNotification } from './utils/notifications'
 import Main from './components/Navigation'
+import DecksStatusBar from './components/DecksStatusBar'
 
-
-function DecksStatusBar ({backgroundColor, ...props}) {
-  return (
-    <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
-      <StatusBar translucent backgroundColor={backgroundColor} {...props} />
-    </View>
-  )
-}
 
 const initialState = {
   decksIds: [
