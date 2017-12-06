@@ -23,13 +23,25 @@ class Quiz extends Component {
     submitAnswer({deckId, isCorrect})
   }
 
-  finishQuiz = async () => {
+  restartQuiz = async () => {
+    const { deckId, decks } = this.props
     this.props.resetQuiz()
     await clearLocalNotification()
     await setLocalNotification()
     this.props.navigation.navigate(
-      'Home',
-      {}
+      'Quiz',
+      {deckId: deckId, title: decks[deckId].title}
+    )
+  }
+
+  finishQuiz = async () => {
+    const { deckId, decks } = this.props
+    this.props.resetQuiz()
+    await clearLocalNotification()
+    await setLocalNotification()
+    this.props.navigation.navigate(
+      'SpecificDeck',
+      { deckId: deckId, title: decks[deckId].title }
     )
   }
 
@@ -56,7 +68,7 @@ class Quiz extends Component {
         {quiz.deckId && quiz.deckId !== deckId ? (
           <View style={{flex: 1}}>
             <View style={[styles.center, {flex: 2}]}>
-              <Text style={[styles.title]}>There is already an ongoing test. Would you like to carry on with it?</Text>
+              <Text style={[styles.title]}>There is already an ongoing test. Would you like to continue with it?</Text>
             </View>
             <View style={[styles.center, {flex: 3}]}>
               <Button
@@ -89,8 +101,13 @@ class Quiz extends Component {
               <View style={[styles.center, {flex: 2}]}>
                 <Text style={[styles.title]}>Your result is {this.calculateResult()}</Text>
               </View>
-              <View style={[styles.center, {flex: 3}]}>
-                <Button onPress={() => this.finishQuiz()}>Finish quiz</Button>
+
+              <View style={[styles.center, {flex: 4}]}>
+                <Button type='white'
+                        onPress={() => this.restartQuiz()}> 
+                        Restart quiz 
+                </Button>
+                <Button onPress={() => this.finishQuiz()}> Return to deck </Button>
               </View>
             </View>
           )
