@@ -21,7 +21,7 @@ class AddCard extends Component {
   }
 
   submitCard() {
-    const { deckId, saveCard } = this.props
+    const { deckId, saveCard, decks } = this.props
     const { question, answer } = this.state
 
     if (question === 'Enter question' || answer === 'Enter answer') {
@@ -46,6 +46,10 @@ class AddCard extends Component {
     this.setState({question: 'Enter question', answer: 'Enter answer'})
     this.refs.cardQuestion.blur()
     this.refs.cardAnswer.blur()
+    this.props.navigation.navigate(
+      'SpecificDeck',
+      {deckId: deckId, title: decks[deckId].title}
+    )
   }
 
   render() {
